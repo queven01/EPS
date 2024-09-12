@@ -1,0 +1,212 @@
+.main-navigation {
+	display: block;
+
+	@media(max-width: 992px){
+		padding: 10px;
+	}
+
+	//All Menu Lists
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+	}
+
+	// Parent Menu List
+	ul.nav-menu {
+
+		ul.sub-menu {
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			float: left;
+			position: absolute;
+			top: 100%;
+			left: -999em;
+			z-index: 99999;
+			background: $primary-dark;
+			min-width: 250px;
+
+			ul {
+				left: -999em;
+				top: 0;
+			}
+
+			li {
+				
+				&:hover > ul,
+				&.focus > ul {
+					display: block;
+					left: auto;
+				}
+			}
+
+			a {
+				width: 100%;
+				padding: 10px 15px;
+			}
+
+			:hover > a,
+			.focus > a {
+				
+			}
+
+			a:hover,
+			a.focus {
+				color: white;
+				background: $secondary;
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+		}
+	}
+
+	// All List Items
+	li {
+		position: relative;
+
+		&:hover > a,
+		&.focus > a {
+			color: white;
+			background: $secondary;
+		}
+	}
+
+	// All List Item Links
+	a {
+		color: white;
+		font-size: 20px;
+		display: block;
+		text-decoration: none;
+		transition: all .3s;
+		padding: 10px 15px;
+
+		@media(max-width: 992px){
+			// margin-bottom: 1rem;
+		}
+	}
+
+	// .current_page_item > a,
+	// .current-menu-item > a,
+	// .current_page_ancestor > a,
+	// .current-menu-ancestor > a {
+	// }
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+//Not Toggled
+@media(max-width: 992px){
+	.main-navigation ul.nav-menu {
+		position: absolute;
+		top: 100%;
+		left: 100%;
+		width: 100%;
+		transition: all .3s;
+		height: auto;
+		background: $primary-dark;
+		padding: 1rem;
+
+		ul.sub-menu {
+			display: none;
+		}
+	}
+}
+
+//Toggled
+.main-navigation.toggled ul {
+	left: 0;
+
+	li.focus ul.sub-menu {
+		display: block;
+		width: 100%;
+		position: relative;
+		background: #007473;
+		margin-bottom: 1.5rem;
+	}
+}
+
+//Mobile Menu Hamburger
+.main-navigation {
+	.menu-toggle {
+		display: none;
+		z-index: 2;
+		position: relative;
+		padding: 0px;
+		width: 50px;
+		height: 30px;
+		background: transparent;
+		border: none;
+		flex-direction: column;
+		justify-content: space-between;
+		transition: all 400ms ease-in-out;
+		@media(max-width: 992px){
+			display: flex;
+		}
+		.bar {
+			height: 5px;
+			width: 100%;
+			background-color: white;
+			transition: all 400ms ease-in-out;
+			border-radius: 5px;
+			display: block;
+		}
+	}
+	.x:nth-of-type(1) {
+		transition: all 400ms ease-in-out;
+		transform: rotate(45deg);
+		transform-origin: top left;
+		width: 38px;
+	}
+	
+	.x:nth-of-type(2) {
+		transition: all 400ms ease-in-out;
+		transform-origin: center;
+		width: 0;
+	}
+	
+	.x:nth-of-type(3) {
+		transition: all 400ms ease-in-out;
+		transform: rotate(-45deg);
+		transform-origin: bottom left;
+		width: 38px;
+	}
+}
+
+@media screen and (min-width: 37.5em) {
+
+	.menu-toggle {
+		display: flex;
+	}
+
+	.main-navigation ul.nav-menu {
+		display: flex;
+	}
+}
+
+// .comment-navigation,
+// .posts-navigation,
+// .post-navigation {
+
+// 	.site-main & {
+// 		margin: 0 0 1.5em;
+// 	}
+
+// 	.nav-links {
+// 		display: flex;
+// 	}
+
+// 	.nav-previous {
+// 		flex: 1 0 50%;
+// 	}
+
+// 	.nav-next {
+// 		text-align: end;
+// 		flex: 1 0 50%;
+// 	}
+// }

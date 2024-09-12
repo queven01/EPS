@@ -1,0 +1,252 @@
+.content-section {
+    margin: 5rem 0rem;
+
+    @media(max-width: 992px){
+        margin: 3rem 0rem;
+        padding: 2rem 0rem;
+    }
+    &.content-with-accordion {
+        .accordion {
+            margin-bottom: 2rem;
+        }
+        .accordion {
+            .accordion-item {
+                border-bottom: 1px solid $primary; 
+
+                .accordion_question {
+                    margin: 0px;
+                    font-size: 18px;
+                }
+
+            .accordion-button {
+                    border: none;
+                    &:focus {
+                        border: none;
+                        outline: none;
+                        box-shadow: none;
+                    }
+                    &:hover {
+                        background-color: #ffffff;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .content_after_accordion {
+            margin: 3rem auto;
+            width: 992px;
+            text-align: center;
+        }
+    }
+    &.tickets {
+        .buttons-container {
+            justify-content: center;
+        }
+        .description-container {
+            max-width: 992px;
+            margin: 2rem auto;
+        }
+    }
+    &.tickets-information {
+        .buttons-container {
+            justify-content: center;
+            text-align: center;
+        }
+
+        .description-container {
+            max-width: 992px;
+            margin: 3rem auto;
+        }
+
+        .image-divider {
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            // grid-template-rows: repeat(10, 1fr);
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+            @media(max-width: 992px){
+                grid-template-columns: auto;
+            }
+ 
+            .grid-item {
+                padding: 1rem;
+                position: relative;
+                border: 30px solid transparent;
+                border-image: url('../assets/image/ECM-Wave-Border-01.svg') 30 round;
+
+                .section_title {
+                    color: $primary;
+                }
+                .title {
+                    margin-bottom: .5rem;
+                }
+                .sub-title {
+                    color: $primary;
+                    font-size: 12px;
+                    margin-bottom: 0rem;
+                }
+                .small_title {
+                    font-size: 18px;
+                    margin-bottom: .5rem;
+                }
+
+                //Price Item Row
+                .price_item {
+                    border-bottom: 1px solid black;
+                    padding-bottom: 1rem;
+                    margin-bottom: 1rem;
+                    .prices {
+                        .price {
+                            display: flex;
+                            justify-content: space-between;
+                            font-size: 18px;
+                            text-transform: uppercase;
+                        }
+                        &.two_columns {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-end;
+                            font-size: 20px;
+                            text-transform: uppercase;
+                            .right-side {
+                                display: flex;
+                                gap: 20px;
+                            }
+                        }
+                    }
+
+                    &.on-site-activities {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        
+                        .prices { 
+                            &.two_columns {
+                                gap: 20px;
+                            }
+                        }
+                    }
+                }
+
+
+                //included-section
+                &.included-section {
+                    .section_title {
+                        color: $secondary;
+                    }
+                    .item {
+                        color: $primary;
+                        font-size: 22px;
+                        font-family: $secondary;
+                        margin-bottom: 10px;
+                    }
+                }
+
+                //last bottom section
+                &.what-to-expect-section {
+                    border-image: url('../assets/image/ECM-Wave-Border-01.svg') 60 round;
+                }
+            }
+        }
+            
+        .div1 { 
+            grid-area: 1 / 3 / 7 / 5; 
+            @media(max-width: 992px){
+                grid-column: auto;
+                grid-row: auto;
+            }
+        }
+        .div2 { 
+            grid-area: 1 / 1 / 4 / 3; 
+            @media(max-width: 992px){
+                grid-column: auto;
+                grid-row: auto;
+            }
+        }
+        .div3 { 
+            grid-area: 4 / 1 / 7 / 3; 
+            @media(max-width: 992px){
+                grid-column: auto;
+                grid-row: auto;
+            }
+        }
+        .div4 { 
+            grid-area: 7 / 1 / 11 / 5; 
+            @media(max-width: 992px){
+                grid-column: auto;
+                grid-row: auto;
+            }
+        }
+    }
+    &.with-image {
+        .row {
+            align-items: center;
+            .content-side {
+                @media(max-width: 767px){
+                    order: 2;
+                }
+            }
+            .image-side {
+                @media(max-width: 767px){
+                    order: 1;
+                }
+                img {
+                    width: 100%;
+                    height: 500px;
+                    object-fit: cover;                
+                }
+                &.image-ratio {
+                    img {
+                        height: auto;
+                    }
+                }
+            } 
+        } 
+        &.flip-image {
+            .content-side {
+                order: 2;
+            }
+            .image-side {
+                order: 1;
+            }
+        } 
+    }
+    &.editors {
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    }
+}
+
+//Buttons
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+    @media(max-width: 992px){
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            text-align: center;
+            text-wrap: nowrap;
+        }
+    }
+
+    &.not-centered {
+        justify-content: flex-start;
+    }
+} 

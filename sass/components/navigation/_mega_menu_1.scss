@@ -1,0 +1,50 @@
+.main-navigation {
+    ul.mega-menu {
+        > li {
+            position: initial;
+        }
+        /* Styling for the mega menu columns */
+        li:hover > ul.sub-menu {
+            // display: block;
+        }
+        // child menu
+        ul.sub-menu {
+            display: none;
+            position: absolute;
+            left: 0 !important;
+            width: 100%;
+            background: $secondary;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            li {
+                float: left;
+                width: 25%; /* 4 columns = 25% width for each */
+                padding: 10px;
+                a {
+                    display: block;
+                    padding: 10px;
+                    text-align: left;
+                    color: #333;
+                    text-decoration: none;
+                }
+            }
+
+            .ul { 
+                display: none;
+            }
+
+            /* Clear floats */      
+            &:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        }
+        /* Full width of the menu container */
+        ul {
+            width: 100vw;
+            left: calc(-50vw + 50%);
+        }
+    }
+}

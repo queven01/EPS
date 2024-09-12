@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'MarkPro';
+    src: url(MarkPro.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MarkPro-Medium';
+    src: url(MarkPro-Medium.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MarkPro-Light';
+    src: url(MarkPro-Light.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MarkPro-Book';
+    src: url(MarkPro-Book.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MarkPro-Bold';
+    src: url(MarkPro-Bold.otf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Salute-Clean';
+    src: url(SALUTE-Clean.otf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Salute-Stencil';
+    src: url(SALUTE-Stencil.otf);
+    font-weight: bold;
+    font-style: normal;
+}

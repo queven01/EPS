@@ -1,0 +1,83 @@
+.btn,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 1px solid;
+	border: none; 
+	border-radius: 20px;
+	background-color: $color__background-button;
+	color: white;
+	line-height: 1;
+    padding: 0.75rem 1.5rem;
+	text-decoration: none;
+	font-size: 20px;
+	text-transform: uppercase;
+	display: inline-block;
+
+	transition: all .3s;
+
+	border: 2px solid $secondary-dark;
+
+	&.primary {
+		color: white;
+		background-color: $primary;
+	}
+
+	&:hover {
+		color: white;
+		background-color: $secondary-dark;
+		border: 2px solid $secondary-dark;
+
+		&.primary {
+			color: white;
+			background-color: $primary-dark;
+		}
+	}
+
+	&:visited {
+		color: white;
+	}
+
+	&:active,
+	&:focus {
+		// border-color: $color__border-button-focus;
+	}
+
+	//Active Button 
+	&.active {
+		background: white;
+		color: $secondary-dark;
+	}
+}
+
+
+//Forminator Button Overwrite
+.forminator-button {
+	border: 1px solid !important;
+	border: none !important;
+	border-radius: 20px !important;
+	background-color: $color__background-button !important;
+	color: white !important;
+	line-height: 1 !important;
+    padding: 0.75rem 1.5rem .55rem !important;
+	text-decoration: none !important;
+	font-size: 20px !important;
+	text-transform: uppercase !important;
+	display: inline-block !important;
+
+	transition: all .3s !important;
+
+	border: 2px solid $secondary-dark !important;
+
+	&:hover {
+		color: white !important;
+		background-color: $secondary-dark !important;
+		border: 2px solid $secondary-dark !important;
+	}
+}
+
+.ui-datepicker-header,
+.ui-datepicker-calendar {
+	background: white !important;
+}
