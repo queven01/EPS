@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package KC_Portfolio_Theme
+ * @package EPS_Theme
  */
 
 ?>
@@ -23,7 +23,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'KC_Portfolio_Theme' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'EPS_Theme' ); ?></a>
 
 	<header id="masthead" class="site-header">
 		<div class="site-header-container">	
@@ -35,10 +35,10 @@
 				else : ?>
 					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>					
 				<?php endif;
-				$KC_Portfolio_Theme_description = get_bloginfo( 'description', 'display' );
-				if ( $KC_Portfolio_Theme_description || is_customize_preview() ) :
+				$EPS_Theme_description = get_bloginfo( 'description', 'display' );
+				if ( $EPS_Theme_description || is_customize_preview() ) :
 					?>
-					<p class="site-description"><?php echo $KC_Portfolio_Theme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+					<p class="site-description"><?php echo $EPS_Theme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 				<?php endif; ?>
 			</div><!-- .site-branding -->
 
@@ -48,7 +48,7 @@
 					<span class="bar"></span>
 					<span class="bar"></span>
 				</button>
-				<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'KC_Portfolio_Theme' ); ?></button> -->
+				<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'EPS_Theme' ); ?></button> -->
 				<?php
 				// wp_nav_menu(
 				// 	array(

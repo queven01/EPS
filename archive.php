@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package KC_Starter_Theme
+ * @package eps_theme
  */
 
 get_header();

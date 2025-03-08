@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package KC_Starter_Theme
+ * @package eps_theme
  */
 
 ?>
@@ -14,7 +14,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php kc_starter_theme_post_thumbnail(); ?>
+	<?php eps_theme_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -22,7 +22,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'kc_starter_theme' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'eps_theme' ),
 				'after'  => '</div>',
 			)
 		);
@@ -36,7 +36,7 @@
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'kc_starter_theme' ),
+						__( 'Edit <span class="screen-reader-text">%s</span>', 'eps_theme' ),
 						array(
 							'span' => array(
 								'class' => array(),

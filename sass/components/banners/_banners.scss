@@ -43,6 +43,7 @@
     img.banner-bg-image { 
         position: absolute;
         object-fit: cover;
+        object-position: top;
         height: 100%;
         width: 100%;
         z-index: 0;
@@ -51,15 +52,15 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: $black;
-        opacity: .6; 
+        background: $primary;
+        opacity: .8; 
         z-index: 1;
     }
 
     
     // Banner Home
     &.banner-home {
-        height: 800px;
+        height: 900px;
 
         .content {
             margin-top: 8rem;

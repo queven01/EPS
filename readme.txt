@@ -1,4 +1,4 @@
-=== KC Starter Theme ===
+=== EPS Theme ===
 
 Contributors: automattic
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
@@ -10,11 +10,11 @@ Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-A starter theme called KC Starter Theme.
+A starter theme called EPS Theme.
 
 == Description ==
 
-KC Starter Theme, This theme will be changed and modified to meet the requirement of each site.
+EPS Theme, This theme will be changed and modified to meet the requirement of each site.
 
 == Installation ==
 
@@ -26,7 +26,7 @@ KC Starter Theme, This theme will be changed and modified to meet the requiremen
 
 = Does this theme support any plugins? =
 
-KC Starter Theme includes support for WooCommerce and for Infinite Scroll in Jetpack.
+EPS Theme includes support for WooCommerce and for Infinite Scroll in Jetpack.
 
 == Changelog ==
 

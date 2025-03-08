@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package KC_Starter_Theme
+ * @package eps_theme
  */
 
 ?>
@@ -22,14 +22,14 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				kc_starter_theme_posted_on();
-				kc_starter_theme_posted_by();
+				eps_theme_posted_on();
+				eps_theme_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php kc_starter_theme_post_thumbnail(); ?>
+	<?php eps_theme_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -37,7 +37,7 @@
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'kc_starter_theme' ),
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'eps_theme' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -50,7 +50,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'kc_starter_theme' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'eps_theme' ),
 				'after'  => '</div>',
 			)
 		);
@@ -58,6 +58,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php kc_starter_theme_entry_footer(); ?>
+		<?php eps_theme_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

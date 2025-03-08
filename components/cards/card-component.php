@@ -2,8 +2,6 @@
     $title = get_sub_field('title');
     $description = get_sub_field('description');
     $dynamic_card = get_sub_field('dynamic_card');
-    $button_1 = get_sub_field('button_1');
-    $button_2 = get_sub_field('button_2');
     $secondary_style = get_sub_field('secondary_style');;
 
     if($dynamic_card){
@@ -32,14 +30,6 @@
                     if($title) echo '<h2 class="section-title">'. $title .'</h2>';
                     if($description) echo '<div class="description">'. $description .'</div>';
                 ?>
-                <?php if($button_1 || $button_2 ):?>
-                    <div class="buttons-container">
-                        <?php 
-                            if($button_1) echo '<a class="btn" href="'.$button_1['url'].'">'. $button_1['title'] .'</a>';
-                            if($button_2) echo '<a class="btn" href="'.$button_2['url'].'">'. $button_2['title'] .'</a>';
-                        ?>
-                    </div>
-                <?php endif; ?>
             </div>
         <?php endif; ?>
         <div class="row g-5 card-row">
