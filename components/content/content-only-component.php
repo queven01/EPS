@@ -11,8 +11,11 @@
     $section_id = get_sub_field('section_id');
 
     $vertical_align_center = get_sub_field('vertical_align_center');
+    if ( $args['key'] ) {
+        $key = $args['key'];
+    }
 ?>
-<section <?php echo 'id="'.$section_id.'"'?> class="content-section content-only">
+<section id="<?php if($section_id): echo $section_id; else: echo 'section-'.$key; endif;?>" class="content-section content-only">
     <div class="container">
         <div class="row <?php if($vertical_align_center){echo 'vertical-align';} ?>">
             <div class="col-lg-6 content-side">

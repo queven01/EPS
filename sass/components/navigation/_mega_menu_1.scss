@@ -1,11 +1,11 @@
 .main-navigation {
     ul.mega-menu {
         > li {
-            position: initial;
+            // position: initial;
         }
         /* Styling for the mega menu columns */
         li:hover > ul.sub-menu {
-            // display: block;
+            display: block;
         }
         // child menu
         ul.sub-menu {

@@ -1,45 +1,45 @@
 <?php
+    $icon = get_sub_field('icon'); 
+    $large_title = get_sub_field('large_title');
     $title = get_sub_field('title'); 
     $content = get_sub_field('content');
-    $video = get_sub_field('video');
-    $video_link = get_sub_field('video_link');
+    $image = get_sub_field('image');
+    $side_bar_graphic = get_sub_field('side_bar_graphic');
     $flip_image = get_sub_field('flip_image');
-    $image_ratio = get_sub_field('image_ratio');
 
     $style_selector = get_sub_field('style_selector');
+    $section_id = get_sub_field('section_id');
+    $last_goal = get_sub_field('last_goal');
+    if ( $args['key'] ) {
+        $key = $args['key'];
+    }
+    if ( $args['goal'] ) {
+        $goal = $args['goal'];
+    }
 ?>
-<section class="content-section media <?php if($flip_image){echo 'flip-image ';} echo $style_selector; ?>" >
+<section id="<?php if($section_id): echo $section_id; else: echo 'section-'.$key; endif;?>" class="content-section goal <?php if($flip_image){echo 'flip-image ';} echo $style_selector; ?>" >
     <div class="container">
         <div class="row">
-            <div class="col-md-5 content-side">
+            <div class="col-12 col-md-5 content-side">
+                <div class="heading-container wow animate__animated animate__fadeInLeft">
+                    <?php if($large_title): echo '<h2>'.$large_title.'</h2>'; endif;?>
+                    <?php if($icon): ?>
+                        <div class="icon-container">
+                            <img src="<?php echo $icon['url']; ?>" alt="">
+                        </div>
+                    <?php endif; ?>
+                </div>
                 <div class="content">
                     <?php if($title): echo '<h3>'.$title.'</h3>'; endif;?>
                     <?php echo $content; ?>
                 </div>
             </div>
-            <div class="col-md-7 image-side <?php if($image_ratio){echo 'image-ratio';}?>">
-            <?php
-                // Use preg_match to find iframe src.
-                preg_match('/src="(.+?)"/', $video_link, $matches);
-                $src = $matches[1];
-
-                // Add extra parameters to src and replace HTML.
-                $params = array(
-                    'controls'  => 0,
-                    'hd'        => 1,
-                    'autohide'  => 1
-                );
-                $new_src = add_query_arg($params, $src);
-                $video_link = str_replace($src, $new_src, $video_link);
-
-                // Add extra attributes to iframe HTML.
-                $attributes = 'frameborder="0"';
-                $video_link = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video_link);
-
-                // Display customized HTML.
-                echo $video_link;
-                ?>
+            <div class="col-12 col-md-7 image-side">
+                <?php if($image): ?><img src="<?php echo $image['url']; ?>" alt=""><?php endif; ?>
             </div>
         </div>
+    </div>
+    <div class="goal-graphic-container <?php if($last_goal){echo 'last-goal';}?>" id="goal-image-<?php echo $goal;?>-container">
+        <?php if($side_bar_graphic): ?><img class="goal-graphic" id="goal-image-<?php echo $goal;?>" src="<?php echo $side_bar_graphic['url']; ?>" alt=""><?php endif; ?>
     </div>
 </section>

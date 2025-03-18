@@ -8,6 +8,9 @@ h6 {
 	margin-top: 0px;
 	font-family: $font__heading;
 	color: $dark-blue;
+	span {
+		color: $blue;
+	}
 }
 
 h1 {
@@ -18,28 +21,40 @@ h1 {
     line-height: 1;
 
 	@media(max-width: 992px){
-		font-size: 35px;
+		font-size: 45px;
 	}
 }
 
 h2 {
-	font-size: 35px;
+	font-size: 42px;
 	font-weight: 500;
 	font-style: normal;
     margin-bottom: 1rem;
     line-height: 1;
 	@media(max-width: 992px){
-		font-size: 25px;
+		font-size: 35px;
 	}
 }
 
 h3 {
-	font-size: 25px;
+	font-size: 28px;
 	font-weight: 400;
 	font-style: normal;
     margin-bottom: .5rem;
     line-height: 1;
 	@media(max-width: 992px){
-		font-size: 20px;
+		font-size: 28px;
+	}
+}
+
+h4 {
+	font-size: 25px;
+	font-weight: 400;
+	font-style: normal;
+    margin-bottom: .5rem;
+    line-height: 1;
+	color: $blue;
+	@media(max-width: 992px){
+		font-size: 25px;
 	}
 }

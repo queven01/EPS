@@ -6,8 +6,6 @@
     $banner_button = get_field('button');
     $banner_button_2 = get_field('button_2');
     $video = get_field('video');
-
-    $snow_effect = get_field('snow_effect');
     
     if($isTitle){
         $banner_title = get_field('title');
@@ -23,7 +21,7 @@
 ?>
 
 <section class="banner banner-home">
-    <div class="container content">
+    <div class="content animate__animated animate__fadeInUp">
         <h1 class="title"><?php echo $banner_title; ?></h1>
         <h2 class="sub-title"><?php echo $banner_sub_title; ?></h2>
         <div class="buttons-container">
@@ -38,5 +36,7 @@
         </video>
     <?php endif; ?>
     <img class="banner-bg-image" src="<?php echo $banner_image; ?>" alt="">
-    <?php if($snow_effect){ echo '<div class="snow"></div>';}?>
+    <div class="hero-blocks animate__animated animate__fadeInUp animate__slow">
+        <?php echo file_get_contents( get_template_directory_uri() . '/assets/image/eps-lines.svg' ); ?>
+    </div>
 </section>

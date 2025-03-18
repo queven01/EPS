@@ -3,6 +3,7 @@
 
 	@media(max-width: 992px){
 		padding: 10px;
+		display: none !important;
 	}
 
 	//All Menu Lists
@@ -22,8 +23,7 @@
 			top: 100%;
 			left: -999em;
 			z-index: 99999;
-			background: $primary-dark;
-			min-width: 250px;
+			background: white;
 
 			ul {
 				left: -999em;
@@ -31,28 +31,24 @@
 			}
 
 			li {
-				
+				padding: 0px;
+				width: max-content;
+
 				&:hover > ul,
 				&.focus > ul {
 					display: block;
 					left: auto;
 				}
-			}
 
-			a {
-				width: 100%;
-				padding: 10px 15px;
-			}
-
-			:hover > a,
-			.focus > a {
-				
-			}
-
-			a:hover,
-			a.focus {
-				color: white;
-				background: $secondary;
+				a {
+					color: $dark-blue;
+					width: 100%;
+					padding: 10px 15px;
+				}
+				:hover > a,
+				.focus > a {
+					
+				}
 			}
 		}
 
@@ -65,22 +61,36 @@
 	// All List Items
 	li {
 		position: relative;
+		padding: 10px 15px;
 
-		&:hover > a,
-		&.focus > a {
-			color: white;
-			background: $secondary;
+		> a:hover,
+		&.focus > a:hover {
+			color: $secondary;
+
+			&:after {
+				width: 100%;
+			}
 		}
 	}
 
 	// All List Item Links
 	a {
 		color: white;
-		font-size: 20px;
+		font-size: 16px;
 		display: block;
 		text-decoration: none;
 		transition: all .3s;
-		padding: 10px 15px;
+		text-transform: uppercase;
+
+		&:after {
+			content: "";
+			display: block;
+			margin: 0 auto;
+			width: 0;
+			height: 2px;
+			background-color: #991E2D;
+			transition: all .3s;
+		}
 
 		@media(max-width: 992px){
 			// margin-bottom: 1rem;
@@ -178,6 +188,31 @@
 	}
 }
 
+.menu-toggle {
+	display: none;
+	z-index: 2;
+	position: relative;
+	padding: 0px;
+    width: 35px;
+    height: 25px;
+	background: transparent;
+	border: none;
+	flex-direction: column;
+	justify-content: space-between;
+	transition: all 400ms ease-in-out;
+	@media(max-width: 992px){
+		display: flex;
+	}
+	.bar {
+		height: 4px;
+		width: 100%;
+		background-color: white;
+		transition: all 400ms ease-in-out;
+		border-radius: 5px;
+		display: block;
+	}
+}
+
 @media screen and (min-width: 37.5em) {
 
 	.menu-toggle {
@@ -188,25 +223,3 @@
 		display: flex;
 	}
 }
-
-// .comment-navigation,
-// .posts-navigation,
-// .post-navigation {
-
-// 	.site-main & {
-// 		margin: 0 0 1.5em;
-// 	}
-
-// 	.nav-links {
-// 		display: flex;
-// 	}
-
-// 	.nav-previous {
-// 		flex: 1 0 50%;
-// 	}
-
-// 	.nav-next {
-// 		text-align: end;
-// 		flex: 1 0 50%;
-// 	}
-// }

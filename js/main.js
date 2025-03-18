@@ -2,16 +2,28 @@ jQuery(document).ready(function(){
     _swiperSlider();
     _navScroll();
     _activePage();
+    _scrollGraphic();
+    wow.init();
     // _navImageSwitch();
     // _tabChange();
     // _search_bar();
     // _masonryEffects();
     // _gsapEffects();
     // _arrowBounce();
-    _megaMenu_1();
 });
 
 var $ = jQuery;
+
+let _offset = 100;
+wow = new WOW(
+  {
+    boxClass:     'wow',      
+    animateClass: 'animated', 
+    offset:       _offset,          
+    mobile:       true,       
+    live:         true        
+  }
+);
 
 function _swiperSlider(){
     
@@ -70,17 +82,13 @@ function _navScroll(){
     $(window).scroll(function(event){
         if($(window).scrollTop() > 50) {
             $('.main-navigation').addClass('scroll-bg')
-            $('.site-branding').addClass('scroll-bg')
-            $('.site-branding img').addClass('resize')
-            $('.site-header-container').css('padding', '0px 5% 10px 5%');  
+            $('.site-header-container').addClass('scroll-bg')
         } else {
             $('.main-navigation').removeClass('scroll-bg')
-            $('.site-branding').removeClass('scroll-bg')
-            $('.site-branding img').removeClass('resize')
-            $('.site-header-container').css('padding', '0px 5% 20px 5%');   
+            $('.site-header-container').removeClass('scroll-bg')
         }
     });
-} 
+}
 
 // Search Bar
 function _search_bar(){
@@ -291,66 +299,151 @@ function _arrowBounce(){
 };
 
 
-//Mega Menu 
-function _megaMenu_1() {
-  const menuItems = document.querySelectorAll('.mega-menu > li.menu-item-has-children');
-  // menuItems.forEach((item) => {
-  //     item.addEventListener('click', function (e) {
-  //         e.preventDefault()
-  //         console.log('click');
-  //         const submenu = item.querySelector('ul');
-  //         console.log(submenu.style.display == "none");
-  //         if (submenu.style.display == "none") {
-  //             submenu.style.display = 'block';
-  //         } else {
-  //           submenu.style.display = 'none';
-  //         }
-  //         if (e.target != submenu) {
-  //           console.log('this is not the sub menu')
-  //         }
-  //     });
-  // });
-  menuItems.forEach((item) => {
-    // Toggle submenu on click
-    item.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const submenu = item.querySelector('ul');
+function _scrollGraphic(){
 
-        // First, close all other submenus
-        closeAllSubmenus();
+    // let lastScrollTop = 0; // Track the last scroll position
+    // let lastActiveGraphic = null; // Track the last active graphic
 
-        // Then, toggle the clicked submenu
-        if (submenu.style.display === 'block') {
-            submenu.style.display = 'none';
-        } else {
-            submenu.style.display = 'block';
-        }
+    // function updateGoalGraphic() {
+    //     let scrollTop = $(window).scrollTop();
+    //     let scrollingDown = scrollTop > lastScrollTop; // Check if scrolling down
+    //     lastScrollTop = scrollTop; // Update last scroll position
 
-        // Stop event from bubbling up to the document
-        e.stopPropagation();
-    });
-});
+    //     let containers = $(".goal-graphic-container");
+    //     let currentGraphic = null;
 
-// Function to close all submenus
-function closeAllSubmenus() {
-    menuItems.forEach((item) => {
-        const submenu = item.querySelector('ul');
-        if (submenu) {
-            submenu.style.display = 'none';
-        }
-    });
-}
+    //     let $num = 1;
+    //     let stopShowingGraphic = false; // Flag to hide graphic when goal-scroll-close appears
 
-// Close submenu if clicking outside the menu item
-document.addEventListener('click', function (e) {
-    menuItems.forEach((item) => {
-        const submenu = item.querySelector('ul');
+    //     containers.each(function () {
+    //         let rect = this.getBoundingClientRect();
+    //         let windowHeight = window.innerHeight;
 
-        // Check if the click is outside the current open submenu and menu item
-        if (submenu && submenu.style.display === 'block' && !item.contains(e.target)) {
-            submenu.style.display = 'none';
-        }
-    });
-});
+    //         if (scrollingDown) {
+    //             // SCROLLING DOWN: Switch when a new container enters from the top
+    //             if (rect.top < windowHeight && rect.bottom > 0) {
+    //                 currentGraphic = $(this).find(".goal-graphic");
+    //             }
+    //         } else {
+    //             // SCROLLING UP: Switch when the current container goes BELOW the fold\
+    //             if (rect.bottom < windowHeight + 500 && rect.top > 800) { 
+    //                 // currentGraphic = $(this).find(".goal-graphic");
+    //                 $num = $num - 1;
+    //                 $prevContainer = $("#goal-image-" + $num + "-container")
+    //                 currentGraphic = $prevContainer.find('.goal-graphic');
+    //             }
+    //         }
+
+    //         // If this is the last section AND the goal-scroll-close is in view, stop showing graphics
+    //         if ($(".goal-scroll-close").length) {
+    //             let closeRect = $(".goal-scroll-close")[0].getBoundingClientRect();
+    //             if (closeRect.top < windowHeight && closeRect.bottom > 0) {
+    //                 stopShowingGraphic = true;
+    //             }
+    //         }
+
+    //         $num++;
+    //     });
+
+    //     // Hide all goal graphics if stop condition is met
+    //     if (stopShowingGraphic) {
+    //       $(".goal-graphic").hide();
+    //         lastActiveGraphic = null;
+    //       return;
+    //     }
+
+
+    //     // If the current graphic is different, update it
+    //     if (currentGraphic && !currentGraphic.is(lastActiveGraphic)) {
+    //         $(".goal-graphic").hide(); // Hide all images
+    //         currentGraphic.show(); // Show the new active image
+    //         lastActiveGraphic = currentGraphic; // Update the tracker
+    //     }
+    // }
+
+    // $(window).on("scroll", updateGoalGraphic);
+    // updateGoalGraphic(); // Run on page load to set the initial state
+
+      let lastScrollTop = 0; // Track the last scroll position
+      let lastActiveGraphic = null; // Track the last active graphic
+      let goalGraphicsHidden = false; // Track if graphics are hidden
+  
+      function updateGoalGraphic() {
+          let scrollTop = $(window).scrollTop();
+          let scrollingDown = scrollTop > lastScrollTop; // Check if scrolling down
+          lastScrollTop = scrollTop; // Update last scroll position
+  
+          let containers = $(".goal-graphic-container");
+          let currentGraphic = null;
+          let $num = 1;
+  
+          let stopShowingGraphic = false; // Flag to hide graphic when goal-scroll-close appears
+          let lastGoalGraphic = null; // Store last section graphic
+  
+          containers.each(function () {
+              let rect = this.getBoundingClientRect();
+              let windowHeight = window.innerHeight;
+  
+              // Check if this is the last-goal container
+              let isLastGoal = $(this).hasClass("last-goal");
+  
+              if (isLastGoal) {
+                  lastGoalGraphic = $(this).find(".goal-graphic");
+              }
+  
+              if (scrollingDown) {
+                  // SCROLLING DOWN: Switch when a new container enters from the top
+                  if (rect.top < windowHeight && rect.bottom > 0) {
+                      currentGraphic = $(this).find(".goal-graphic");
+                  }
+              } else {
+                  // SCROLLING UP: Switch when the previous container goes BELOW the fold
+                  if (rect.bottom < windowHeight + 500 && rect.top > 800) { 
+                      $num = $num - 1;
+                      let $prevContainer = $("#goal-image-" + $num + "-container");
+                      currentGraphic = $prevContainer.find('.goal-graphic');
+                  }
+              }
+  
+              $num++;
+          });
+  
+          // Check if goal-scroll-close is visible
+          if ($(".goal-scroll-close").length) {
+              let closeRect = $(".goal-scroll-close")[0].getBoundingClientRect();
+              let windowHeight = window.innerHeight;
+  
+              if (closeRect.top < windowHeight) {
+                  stopShowingGraphic = true;
+              }
+          }
+  
+          // Hide all goal graphics if goal-scroll-close is visible
+          if (stopShowingGraphic) {
+              $(".goal-graphic").removeClass('active');;
+              lastActiveGraphic = null;
+              goalGraphicsHidden = true; // Mark that we hid the graphics
+              return;
+          }
+  
+          // If scrolling up and goal-scroll-close is no longer visible, restore last goal image
+          if (goalGraphicsHidden && !stopShowingGraphic && lastGoalGraphic) {
+              $(".goal-graphic").removeClass('active');;
+              lastGoalGraphic.addClass('active');
+              lastActiveGraphic = lastGoalGraphic;
+              goalGraphicsHidden = false; // Reset flag
+              return;
+          }
+  
+          // If the current graphic is different, update it
+          if (currentGraphic && !currentGraphic.is(lastActiveGraphic)) {
+              $(".goal-graphic").removeClass('active'); // Hide all images
+              currentGraphic.addClass('active'); // Show the new active image
+              lastActiveGraphic = currentGraphic; // Update the tracker
+          }
+      }
+  
+      $(window).on("scroll", updateGoalGraphic);
+      updateGoalGraphic(); // Run on page load to set the initial state  
+
 }

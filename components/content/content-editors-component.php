@@ -20,15 +20,17 @@
         $column_Div = '<div class="col-12 col-lg-6 col-xl-4">';
     } elseif($number_of_columns == 4){ 
         $column_Div = '<div class="col-12 col-md-3">';
-        
+    }
+    if ( $args['key'] ) {
+        $key = $args['key'];
     }
 ?>
 <?php if($content_columns): ?>
-<section <?php echo 'id="'.$section_id.'"'?> class="content-section editors <?php echo $style_mode; ?>" >
+<section id="<?php if($section_id): echo $section_id; else: echo 'section-'.$key; endif;?>" class="content-section editors <?php echo $style_mode; ?>" >
     <div class="container <?php if($small_container){echo 'small-container';}?>">
-        <?php if($title): echo '<h2 class="title">'.$title.'</h2>'; endif;?>
+        <?php if($title): echo '<h3 class="title wow animate__animated animate__fadeInLeft">'.$title.'</h3>'; endif;?>
         <?php if($sub_title): echo '<h3>'.$sub_title.'</h3>'; endif;?>
-        <div class="row <?php if($vertical_align_center){echo 'vertical-align';} if($number_of_columns > 1){echo 'g-5';} ?>">
+        <div class="row <?php if($vertical_align_center){echo 'vertical-align';} if($number_of_columns > 1){echo 'g-4';} ?>">
             <?php foreach($content_columns as $card): 
                 echo $column_Div;?>
                     <?php echo $card['editor']; ?>

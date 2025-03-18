@@ -1,6 +1,10 @@
 .container {
+    @media(max-width: 575px){
+        padding: 0px 5% !important;
+    }
     &.small-container {
         max-width: 860px;
     }
 }
+html { scroll-behavior: smooth; }
 

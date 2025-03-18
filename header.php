@@ -48,23 +48,21 @@
 					<span class="bar"></span>
 					<span class="bar"></span>
 				</button>
-				<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'EPS_Theme' ); ?></button> -->
 				<?php
-				// wp_nav_menu(
-				// 	array(
-				// 		'theme_location' => 'menu-1',
-				// 		'menu_id'        => 'primary-menu',
-				// 	)
-				// );
-				?>
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_class'     => 'mega-menu', // You can add any class here to customize
-					)
-				);
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-1',
+							'menu_class'     => 'default-menu', // You can add any class here to customize
+						)
+					);
 				?>
 			</nav><!-- #site-navigation -->
+			<button class="menu-toggle offcanvas-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</button>
 		</div>
 	</header><!-- #masthead -->
+
+	<?php get_template_part("template-parts/content-slide-menu");?>

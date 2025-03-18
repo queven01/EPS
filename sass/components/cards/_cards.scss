@@ -21,6 +21,9 @@
             margin: 0 auto;
             text-align: center;  
             padding: 2rem;
+            @media(max-width: 992px){
+                padding: 1rem;
+            }
             p {
                 max-width: 300px;
                 margin: 0 auto 1.5rem;
@@ -37,16 +40,14 @@
             gap: 20px;
             padding: 4rem 2rem;
             height: 90%;
+            @media(max-width: 992px){
+                padding: 2rem 1rem;
+                margin-bottom: 0rem !important;
+                height: 100%;
+            }
             .image-container {
-                .circle-graphic {
-                    position: absolute;
-                    top: -20%;
-                    right: -20%;
-                    aspect-ratio: 1 / 1;
-                    width: 100%;
-                    @media(max-width: 768px){
-                        display: none;
-                    }
+                @media(max-width: 992px){
+                    max-width: 30px;
                 }
                 
                 img {
@@ -90,6 +91,9 @@
                 justify-content: space-between;
 
                 .image-container {
+                    @media(max-width: 992px){
+                        max-width: 30px;
+                    }
                     img {
                         width: 60px;
                         height: 100%;
@@ -121,29 +125,38 @@
     .number {
         font-size: 60px;
         margin: 0px;
+        @media(max-width: 992px){
+            font-size: 45px;
+        }
+    }
+    .title {
+        @media(max-width: 992px){
+            font-size: 20px;
+        }
     }
     .sub_title {
         font-weight: 300;
+        @media(max-width: 992px){
+            font-size: 18px;
+        }
+    }
+    p {
+        @media(max-width: 992px){
+            font-size: 12px;
+        } 
     }
 }
 
 //Secondary Card Style
 .card-component {
-    &.secondary_style {
-        .card {
-            &.default {
-                background: $primary;
-                border-radius: 20px;
-                padding: 3rem 1rem;
-                box-shadow: 0px 4px 5px -2px #00000052;
-            }
-        }
-    }
     &.border-2.style-1{
         .card-row {
             .card-col {
                 padding: 0px;
-                border-bottom: 2px dotted $blue;
+                .card.stats.v1 {
+                    border-bottom: 2px dotted #83abc1;
+                    margin-right: 1px;
+                }
                 &:nth-child(odd) {
                     .card.stats.v1 {
                         border-right: 2px dotted $blue;
@@ -157,17 +170,28 @@
         .card-row {
             .card-col {
                 padding: 0px;
-                border-bottom: 2px dotted $blue;
                 .card.stats.v1 {
                     border-right: 2px dotted $blue;
                     margin-bottom: 3rem;
+                    border-bottom: 2px dotted #83abc1;
+                    margin-right: 1px;
+                    margin-left: -3px;                
                 }
-                &:nth-child(3n),
-                &:last-child {
-                    .card.stats.v1 {
-                        border-right: none;
+                @media(min-width: 992px){
+                    &:nth-child(3n),
+                    &:last-child {
+                        .card.stats.v1 {
+                            border-right: none;
+                        }
+                        // border-right: none;
                     }
-                    // border-right: none;
+                }
+                @media(max-width: 992px){
+                    &:nth-child(even){
+                        .card.stats.v1 {
+                            border-right: none;
+                        }
+                    }
                 }
             }
         }

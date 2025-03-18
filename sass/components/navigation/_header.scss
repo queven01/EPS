@@ -1,21 +1,25 @@
 #masthead.site-header {
     position: fixed;
-    z-index: 10;
+    z-index: 15;
     width: 100%;
 
     .site-header-container {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         padding: 1rem 5%; 
         background: $primary;
         position: relative;
-        // overflow-x: clip;
         transition: all .3s; 
 
-        @media(max-width: 992px){
-            justify-content: flex-end;
+        &.scroll-bg {
+            padding: 10px 5%;
+            .site-branding {
+                a.custom-logo-link {
+                    max-width: 120px;
+                }
+            }
         }
 
         //Logo
@@ -23,8 +27,9 @@
             a.custom-logo-link {
                 height: auto;
                 width: auto;
-                max-width: 200px;
-                max-height: 200px;
+                max-width: 150px;
+                max-height: 150px;
+                transition: all .3s;
     
                 img {
                     width: 100%;
@@ -76,6 +81,67 @@
                     width: 25px;
                     height: 25px;
                 }
+            }
+        }
+    }
+}
+
+#offcanvasRight { 
+    background: $primary-light;
+    color: white;
+    .btn-close {
+        padding: 5px;
+        border-radius: 100%;
+        height: 34px;
+        &:hover {
+            background: $tertiary;
+            border-color: $tertiary;
+            cursor: pointer;
+        }
+        svg {
+            color: white;
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+.menu-toggle.offcanvas-menu {
+    background: none;
+    border: none;
+    &:hover {
+        cursor: pointer;
+        .bar {
+            background: red;
+        }
+    }
+}
+
+ul.side-menu {
+    list-style-type: none; 
+    margin: 0px;
+    li {
+        font-size: 12px;
+        margin-top: 5px;
+        &.title {
+            font-size: 16px;
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+        }
+        &:first-child{
+            margin: 0px;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+            &:hover {
+                color: $tertiary;
+            }
+        }
+        ul.sub-menu {
+            padding: 0px;
+            margin: 0px;
+            list-style-type: none;
+            li {
             }
         }
     }

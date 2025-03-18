@@ -63,6 +63,7 @@ function eps_theme_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'eps_theme' ),
+			'side-menu' => esc_html__( 'Side Menu', 'eps_theme' ),
 		)
 	);
 
@@ -154,7 +155,13 @@ function eps_theme_scripts() {
 	//Main Theme Styles.CSS
 	wp_enqueue_style( 'theme_styles', get_stylesheet_directory_uri() . '/css/style.css', array(), date('H:i') ); 
 	wp_style_add_data( 'theme_styles', 'rtl', 'replace' );
-	
+
+	//Animate Library
+	wp_enqueue_style('animate-library', get_stylesheet_directory_uri() .'/css/animate.min.css', false); 
+
+	//WOW Animation local JS file
+	wp_enqueue_script( 'wow-scripts', get_stylesheet_directory_uri() . '/js/wow.min.js', array('jquery') );
+
 	// fonts from Folder
 	wp_enqueue_style('custom-site-fonts', get_stylesheet_directory_uri() .'/assets/fonts/fonts.css', false);
 
@@ -167,14 +174,17 @@ function eps_theme_scripts() {
 	//Bootstrap local JS file
 	wp_enqueue_script( 'bootstrap-scripts', get_stylesheet_directory_uri() . '/js/bootstrap.bundle.min.js', array('jquery') );
 
+	//Counter Script
+	wp_enqueue_script('counter-script', get_template_directory_uri() . '/js/counter.js', array('jquery'), null, true);
+
 	//Masonry local JS file
-	wp_enqueue_script( 'masonry-scripts', get_stylesheet_directory_uri() . '/js/masonry-layout.min.js', array('jquery') ); 
+	// wp_enqueue_script( 'masonry-scripts', get_stylesheet_directory_uri() . '/js/masonry-layout.min.js', array('jquery') ); 
 
 	//GSAP CDN
-	wp_enqueue_script( 'gsap-scripts', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', array('jquery') );
+	// wp_enqueue_script( 'gsap-scripts', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', array('jquery') );
 	
 	//Text Plugin CDN
-	wp_enqueue_script( 'text-plugin-scripts', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/TextPlugin.min.js', array('jquery') );
+	// wp_enqueue_script( 'text-plugin-scripts', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/TextPlugin.min.js', array('jquery') );
 	
 	//Main JS
 	wp_enqueue_script( 'EPS_Theme-mainjs', get_stylesheet_directory_uri() . '/js/main.js', array('jquery'), _S_VERSION, true );
@@ -215,3 +225,17 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+//Adding ACF Display Titles
+add_filter('acf/fields/flexible_content/layout_title', 'custom_flexible_content_layout_title', 10, 4);
+
+function custom_flexible_content_layout_title($title, $field, $layout, $i) {
+    // Get the value of a sub-field within the layout
+    $section_title = get_sub_field('section_title'); // Change this to match your field name
+
+    // If the field has a value, modify the title
+    if ($section_title) {
+        return $section_title; // Replaces the default title with the field value
+    }
+
+    return $title; // Default fallback if no value is set
+}
