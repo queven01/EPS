@@ -3,14 +3,17 @@
     $main_table_content_advanced = get_sub_field('main_table_content_advanced');
     $table_notes = get_sub_field('table_notes');
     $section_id = get_sub_field('section_id');
+    $title = get_sub_field('title');
+    $content = get_sub_field('content');
+    $style = get_sub_field('style');
     if ( $args['key'] ) {
         $key = $args['key'];
     }
 ?>
-<section id="<?php if($section_id): echo $section_id; else: echo 'section-'.$key; endif;?>" class="content-section table" >
+<section id="<?php if($section_id): echo $section_id; else: echo 'section-'.$key; endif;?>" class="content-section table <?php echo $style;?>" >
     <div class="container">
         <?php if($title): echo '<h3 class="title wow animate__animated animate__fadeInLeft">'.$title.'</h3>'; endif;?>
-
+        <?php if($content): echo '<div class="description wow animate__animated animate__fadeInLeft">'.$content.'</div>'; endif;?>
         <table class="table">
             <thead>
                 <tr>

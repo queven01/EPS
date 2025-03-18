@@ -1,7 +1,6 @@
 .content-section {
     margin: 5rem 0rem;
     padding: 2rem 0rem;
-    z-index: 6;
     position: relative;
 
     @media(max-width: 992px){
@@ -38,7 +37,6 @@
         }
     } 
     &.dark {
-        z-index: 1;
         padding: 5rem 0rem;
         margin: 0rem;
         background: $dark-blue;
@@ -220,7 +218,7 @@
         }
     }
     &.table {
-        overflow-x: scroll;
+        overflow-x: auto;
         table {
             background: #ececec;
             thead {
@@ -251,7 +249,7 @@
                     }    
                 }
                 td {
-                    text-align: right;
+                    text-align: center;
                     padding: 10px 20px;
 
                     &.text-blue {
@@ -275,6 +273,15 @@
             ol,ul {
                 padding: 0px;
                 margin: 0px 0px 5px 15px;
+            }
+        }
+        &.dark {
+            .description,
+            .table-notes {
+                color: white;
+            }
+           .title {
+                color: white;
             }
         }
     }
@@ -323,6 +330,28 @@
                 @media(max-width: 767px){
                     order: 1;
                 }
+                .image-container {
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    svg {
+                        color: $blue;
+                        position: absolute;
+                        width: 80px;
+                        margin: 0 auto;
+                        transition: all .3s;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        svg {
+                            color: white;
+                            transform: scale(1.1);
+                        }
+                    }
+                }
                 img {
                     width: 100%;
                     height: 400px;
@@ -335,6 +364,29 @@
                 &.image-ratio {
                     img {
                         height: auto;
+                    }
+                }
+                .modal {
+                    .btn-close {
+                        line-height: 0;
+                        border: none;
+                        &:hover {
+                            cursor: pointer;
+                            background: $tertiary;
+                        }
+                    }
+                    .video-wrapper {
+                        position: relative;
+                        padding-bottom: 56.25%; /* 16:9 */
+                        padding-top: 25px;
+                        height: 0;
+                        iframe {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                        }
                     }
                 }
             } 

@@ -40,9 +40,6 @@
                 </div>
             </div>
             <div class="col-md-7 image-side <?php if($image_ratio){echo 'image-ratio';}?>">
-            
-                <?php if($image): ?><img src="<?php echo $image['url']; ?>" alt=""><?php endif; ?>
-
                 <?php
                     if($video_link):
                         // Use preg_match to find iframe src.
@@ -61,11 +58,41 @@
                         // Add extra attributes to iframe HTML.
                         $attributes = 'frameborder="0"';
                         $video_link = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video_link);
-
-                        // Display customized HTML.
-                        echo $video_link;
+                    else:
+                        $video_link = "";
                     endif;
                 ?>
+                <?php if($image && $video_link): ?>
+                    
+                     <div class="image-container" data-bs-toggle="modal" data-bs-target="#exampleModal_<?php echo $key; ?>">
+                        <?php echo file_get_contents( get_template_directory_uri() . '/assets/icons/play-button.svg' ); ?>
+                        <img src="<?php echo $image['url']; ?>" alt="">
+                     </div>
+
+                     <!-- Modal -->
+                    <div class="modal fade" id="exampleModal_<?php echo $key; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn btn-close text-reset" data-bs-dismiss="modal" aria-label="Close">
+                                        <?php echo file_get_contents( get_template_directory_uri() . '/assets/icons/close.svg' ); ?>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="video-wrapper">
+                                        <?php echo $video_link; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php elseif($image): ?>
+                    <img src="<?php echo $image['url']; ?>" alt="">
+                <?php elseif($video_link): ?>
+                    <div class="video-wrapper">
+                        <?php echo $video_link; ?>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
